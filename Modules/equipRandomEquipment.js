@@ -40,23 +40,23 @@ export const equipRandomEquipment = (gearOwned, allGear) =>{
         'eyewear',
         'head',
         'headAccessory',
-      ].filter((t) => Object.prototype.hasOwnProperty.call(gearGroups, t));
+      ].filter((t) => gearGroups.hasOwnProperty(t));
       for (let type of types) {
         const equipped = await equipper(type);
         equippedKeys.push(equipped);
       }
   
-      if (Object.prototype.hasOwnProperty.call(gearGroups, 'weapon')) {
+      if (gearGroups.hasOwnProperty('weapon')) {
         const equippedWeapon = await await equipper('weapon');
         equippedKeys.push(equippedWeapon);
         if (
           !allGear[equippedWeapon.key].twoHanded &&
-          Object.prototype.hasOwnProperty.call(gearGroups, 'shield')
+          gearGroups.hasOwnProperty('shield')
         ) {
           const equippedShield = await equipper('shield');
           equippedKeys.push(equippedShield);
         }
-      } else if (Object.prototype.hasOwnProperty.call(gearGroups, 'shield')) {
+      } else if (gearGroups.hasOwnProperty('shield')) {
         const equipped = await equipper('shield');
         equippedKeys.push(equipped);
       }

@@ -68,7 +68,7 @@ async function build() {
         quests: questsObj,
         gear: { owned: gearObj },
       },
-      stats: { gp: goldOwned, lvl: userLevel },
+      stats: { gp: goldOwned},
       purchased: { background: backgroundsObj },
     },
     } = user;
@@ -105,7 +105,7 @@ async function build() {
       data: { quest },
     } = await fetchAPI('https://habitica.com/api/v3/groups/party', get);
     if (!quest.key) {
-      startRandomQuest(questsObj, userLevel);
+      startRandomQuest(questsObj);
     }
   }
 
