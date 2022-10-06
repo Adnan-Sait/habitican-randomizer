@@ -68,14 +68,13 @@ async function build() {
         quests: questsObj,
         gear: { owned: gearObj },
       },
-      stats: { gp: goldOwned, class: userClass, lvl: userLevel },
+      stats: { gp: goldOwned, lvl: userLevel },
       purchased: { background: backgroundsObj },
     },
     } = user;
   
   const {
     success: partyDataWasFound,
-    error,
     data: partyMembersArr,
   } = await fetchAPI(
     'https://habitica.com/api/v3/groups/party/members?includeAllPublicFields=true',
